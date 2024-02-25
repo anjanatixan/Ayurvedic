@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:ayurvedic/helper/navigation.dart';
 import 'package:http/http.dart' as http;
-import 'package:ayurvedic/apiServices/urls.dart';
-import 'package:ayurvedic/apiServices/webService.dart';
 import 'package:ayurvedic/helper/utils.dart';
 import 'package:ayurvedic/models/loginModel.dart';
 import 'package:ayurvedic/provider/loginProvider.dart';
@@ -10,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginRepo {
-  ApiService _service = ApiService();
+
 
   Future<String> Login() async {
     Map<String, String> headers = {
@@ -34,6 +33,7 @@ class LoginRepo {
 
     // Check the response status code
     if (response.statusCode == 200) {
+      NavigationUtils.goBack(getContext());
       final responseBody = jsonDecode(response.body);
       LoginModel model = LoginModel.fromJson(responseBody);
       getContext().read<LoginProvider>().setLoginModel(model);

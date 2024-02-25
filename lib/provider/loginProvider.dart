@@ -24,7 +24,7 @@ class LoginProvider with ChangeNotifier{
   login() async {
     showLoading(getContext());
     await loginRepo.Login();
-    NavigationUtils.goBack(getContext());
+    
   }
 
   setLoginModel(LoginModel model)async {

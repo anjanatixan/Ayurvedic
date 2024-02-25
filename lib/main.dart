@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import 'helper/navigation.dart';
 import 'provider/loginProvider.dart';
+import 'provider/patienProvider.dart';
 import 'views/splashScreen.dart';
 
 void main() {
@@ -12,7 +13,7 @@ void main() {
     providers: [
       ChangeNotifierProvider(
           create: ((context) => LoginProvider())),
-      // ChangeNotifierProvider(create: ((context) => LoginProvider())),
+      ChangeNotifierProvider(create: ((context) => PatientProvider())),
       // ChangeNotifierProvider(create: (_) => CommentProvider()),
     ],
     child: MyApp(),
